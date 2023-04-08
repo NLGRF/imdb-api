@@ -1,5 +1,5 @@
 import { Elysia, t } from "elysia";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client/edge";
 
 const setup = (app: Elysia) => app.decorate("db", new PrismaClient());
 
@@ -76,7 +76,6 @@ const app = new Elysia()
             })
       );
   })
-
   .group("/title/:id", (app) => {
     return app
       .get("/", async ({ params, db }) => {
@@ -119,8 +118,7 @@ const app = new Elysia()
         });
       });
   })
+
   .listen(3000);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
