@@ -29,5 +29,11 @@ bunx prisma migrate dev --name init
 bunx prisma db seed
 bunx prisma generate --data-proxy
 ```
+## Swagger
+To start the Swagger run:
+```bash
+bun add @elysiajs/swagger
+```
+- htttp://localhost:3000/v1/swagger
 
 Open http://localhost:3000/ with your browser to see the result.
